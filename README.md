@@ -20,6 +20,14 @@ A set of `Dockerfile`s for developing android apps with Cordova. Especially thos
 
 ---
 
+Build from `Dockerfile` or pull from docker.io
+
+	docker pull dougbtv/eyak-base
+
+You can [view on dockerhub, too](https://registry.hub.docker.com/u/dougbtv/eyak-base/).
+
+---
+
 Namesake: Eyak is the name of both a Mountain and a Lake in Cordova, Alaska. And, the [Eyak are also a people](http://en.wikipedia.org/wiki/Eyak).
    
 **NB: This is a work in progress**
