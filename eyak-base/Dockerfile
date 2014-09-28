@@ -43,6 +43,8 @@ ENV PATH $PATH:/adt/tools:/adt/platforms
 RUN echo "y" | android update sdk --no-ui --filter 6
 RUN echo "y" | android update sdk --no-ui --filter 33
 
+# -------------------- Setup the emulator.
+
 # Now let's make an AVD
 # don't forget: `android list targets`
 # 		   and: `android list device`
@@ -50,10 +52,15 @@ RUN echo "y" | android update sdk --no-ui --filter 33
 # RUN android list targets
 RUN android create avd --name eyak_nexus_5 --device "Nexus 5" --target 2
 
+# Yick, this needs to be cleaned up, and lofted to above.
 RUN yum install -y SDL.i686 file xorg-x11-xauth xeyes
 RUN yum install -y yum install mesa-libGL.i686 mesa-libGL-devel.i686 
+# Feeling ambitious? You might just need the 64 bit, it worked after adding this.
 RUN yum install -y mesa-libGL-devel 
+
+# I tried this, but didn't get a lot of mileage.
 # RUN ln -s /usr/lib/libGL.so.1 /adt/tools/lib/
+
 # -------------------- Install Cordova
 # ENV JAVA_HOME /etc/alternatives/java_sdk_1.7.0
 # RUN yum install -y npm
