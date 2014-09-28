@@ -12,7 +12,13 @@
 # docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -i -t dougbtv/eyak-base xeyes
 #
 # normal run
+# First bring it to bash.
 # docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -i -t dougbtv/eyak-base bin/bash
+# Then run... 
+# emulator -noaudio -avd eyak_nexus_5 -gpu off
+# OR
+# cd /adt/tools 
+# ./emulator -noaudio -avd eyak_nexus_5 -gpu off
 # --------------------------------------------------------------------------------------------
 
 FROM fedora:20
@@ -45,7 +51,9 @@ RUN echo "y" | android update sdk --no-ui --filter 33
 RUN android create avd --name eyak_nexus_5 --device "Nexus 5" --target 2
 
 RUN yum install -y SDL.i686 file xorg-x11-xauth xeyes
-
+RUN yum install -y yum install mesa-libGL.i686 mesa-libGL-devel.i686 
+RUN yum install -y mesa-libGL-devel 
+# RUN ln -s /usr/lib/libGL.so.1 /adt/tools/lib/
 # -------------------- Install Cordova
 # ENV JAVA_HOME /etc/alternatives/java_sdk_1.7.0
 # RUN yum install -y npm

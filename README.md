@@ -32,6 +32,18 @@ Namesake: Eyak is the name of both a Mountain and a Lake in Cordova, Alaska. And
    
 **NB: This is a work in progress**
 
+It will run an emulator in a prohibitively slow manner. But, it'll get an emulator up.
+
+It requires that you share your x11 socket with the docker to use a GUI. For this to work you'll have to allow connection to your X, with:
+
+	xhost +
+
+Check out `runbase.sh` which run:
+
+	docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -i -t dougbtv/eyak-base bin/bash
+
+And then in the container 
+
 Things that need to be done, still:
 
 * Get emulator actually... working. (at least x11 works now)
