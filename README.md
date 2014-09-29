@@ -46,8 +46,8 @@ And then in the container
 
 Things that need to be done, still:
 
-* Get emulator actually... working. (at least x11 works now)
 * Split from base into more useful parts (it's this way for development)
+* Can you get that emulator running more quickly? Maybe just as a fallback after it's split up into useful parts?
 
 ---                                                                                                 
 
